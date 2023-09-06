@@ -24,7 +24,7 @@ const Signup = () => {
       const res = await RegisterUser('/auth/register', Formvalues);
       SetLoading(false);
       res ? toast.success('success') : toast.error('error');
-      navigate('/signin');
+      res && navigate('/signin');
     } catch (error) {
       SetLoading(false);
 
