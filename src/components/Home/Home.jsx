@@ -17,10 +17,10 @@ const Home = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
-      className="w-full overflow-scroll  dark:bg-black dark:text-white"
+      className="w-full overflow-scroll "
     >
       <CarouselCard />
-      <section className="Products">
+      <section className="Products dark:bg-black dark:text-white">
         <Filters />
         {isCartOpen && <Cart />}
         {isWishListOpen && <WishList />}

@@ -58,13 +58,13 @@ const Filters = () => {
 
   return (
     <div>
-      <div className="w-[100%] flex justify-center items-center mt-2 overflow-x-scroll  md:text-xl text-[10px]">
+      <div className="w-[100%] flex justify-center items-center gap-2  overflow-x-scroll  md:text-xl text-[10px]">
         {categorys.map((btn) => (
           <button
             style={{ backgroundColor: categoryFilter[btn] === true && 'black' }}
             key={btn}
             onClick={() => handleFilter(btn)}
-            className="button  truncate"
+            className="button  truncate mt-2"
           >
             {btn}
           </button>
