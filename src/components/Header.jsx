@@ -47,7 +47,8 @@ const Header = () => {
       >
         Eco😉
       </h1>
-      <Search />
+      {token ? <Search /> : null}
+
       <div className="flex items-center gap-2 ">
         {token ? (
           <select
