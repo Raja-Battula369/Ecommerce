@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 div::-webkit-scrollbar {
   display: none;
 }
@@ -61,6 +65,6 @@ div::-webkit-scrollbar {
     @apply w-fit  h-fit p-2 flex justify-center items-center border-[3px] text-white bg-violet-500 active:bg-violet-600 transition hover:bg-violet-700 rounded-md hover:shadow-md;
   }
   .carousel-label {
-    @apply absolute w-[300px] left-[8rem] bottom-[10rem] bg-violet-600 text-xl font-semibold p-4 text-white rounded-lg opacity-90 hover:opacity-100 transition;
+    @apply absolute w-[200px] md:w-[300px] left-[2rem]  md:left-[8rem] bottom-[10rem] bg-violet-600 text-xl font-semibold p-4 text-white rounded-lg opacity-90 hover:opacity-100 transition;
   }
 }

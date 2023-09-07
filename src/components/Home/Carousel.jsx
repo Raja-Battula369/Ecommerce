@@ -15,7 +15,7 @@ const CarouselCard = () => {
       transition={{ type: 'spring', duration: 2 }}
     >
       <Carousel
-        className="w-full relative"
+        className="w-full relative -z-10"
         autoPlay={true}
         infiniteLoop={true}
         showThumbs={false}

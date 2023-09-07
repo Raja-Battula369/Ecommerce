@@ -32,10 +32,10 @@ const Signup = () => {
     }
   };
   return (
-    <div className="w-full font-semibold  text-black min-h-screen max-h-full flex flex-col justify-center items-center">
+    <div className="w-full font-semibold text-black min-h-screen max-h-full flex flex-col justify-center items-center">
       <form
         onSubmit={handleSubmit(handleregister)}
-        className="w-[500px] h-fit  border-[3px] border-violet-600 shadow-sm hover:shadow-md transition bg-slate-600 rounded-md "
+        className="w-[90%] md:w-[500px] h-fit  border-[3px] border-violet-600 shadow-sm hover:shadow-md transition bg-slate-600 rounded-md "
       >
         <div className="flex flex-col  gap-2 p-4">
           <label className="text-white" htmlFor="Name">

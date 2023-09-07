@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Product from '../Products/Products';
+import useProducts from '../../hooks/useProducts';
 
 const Filters = () => {
   const categorys = [
@@ -18,18 +19,9 @@ const Filters = () => {
     skincare: false,
     'home-decoration': false,
   });
-  const [products, setProducts] = useState([]);
 
   const [filteredData, setFilteRedData] = useState([]);
-
-  const fetchProductsData = async () => {
-    const data = await fetch('https://dummyjson.com/products', {
-      cache: 'force-cache',
-    });
-    const respone = await data.json();
-    // console.log(respone.products);
-    setProducts(respone.products);
-  };
+  const { products, fetchProductsData } = useProducts();
 
   const handleFilter = (type) => {
     setCategoryFilter((prev) => ({
@@ -66,13 +58,13 @@ const Filters = () => {
 
   return (
     <div>
-      <div className="flex justify-center items-center mt-2 overflow-x-scroll  md:text-xl text-xs">
+      <div className="w-[100%] flex justify-center items-center mt-2 overflow-x-scroll  md:text-xl text-[10px]">
         {categorys.map((btn) => (
           <button
             style={{ backgroundColor: categoryFilter[btn] === true && 'black' }}
             key={btn}
             onClick={() => handleFilter(btn)}
-            className="button whitespace-nowrap"
+            className="button  truncate"
           >
             {btn}
           </button>

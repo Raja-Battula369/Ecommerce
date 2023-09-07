@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { motion, useAnimation } from 'framer-motion';
 import { cartCloseOrOpen, changeQty } from '../../lib/store/features';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -33,13 +34,13 @@ const Cart = () => {
         animate="visible"
         initial="hidden"
         transition={{ type: 'spring', duration: 0.5 }}
-        className="w-[500px] min-h-screen bg-slate-700 absolute top-0 right-0"
+        className="w-[90%] md:w-[500px] min-h-screen bg-slate-700 absolute top-0 right-0"
       >
         <div className="flex justify-between items-center px-[2rem] ">
           <h1 className="text-center font-bold text-3xl">Cart</h1>
           <button
             onClick={() => reduxDispatch(cartCloseOrOpen())}
-            className="button mt-1 px-4"
+            className="button mt-1 px-4 bg-transparent"
           >
             X
           </button>
@@ -66,13 +67,19 @@ const Cart = () => {
               className="bg-white w-[90%] border-[3px] border-violet-600 mt-10 rounded-md"
             >
               <div className="flex gap-5 items-center">
-                <img
-                  className="w-[40%] object-cover rounded-md"
-                  src={product.thumbnail}
-                  alt={product.title}
-                />
+                <Link
+                  to={`/product/${product.id}`}
+                  className="w-[40%]"
+                  onClick={() => reduxDispatch(cartCloseOrOpen())}
+                >
+                  <img
+                    className="object-cover rounded-md aspect-[2/1]"
+                    src={product.thumbnail}
+                    alt={product.title}
+                  />
+                </Link>
                 <div className="flex flex-col">
-                  <p className="text-neutral-950 font-bold text-xl">
+                  <p className="text-neutral-950 font-bold md:text-xl text-[15px] overflow-hidden">
                     {product.name}
                   </p>
                   <div className="flex">
@@ -107,8 +114,8 @@ const Cart = () => {
                         +
                       </button>
                     </div>
-                    <div>
-                      <button className="button bg-transparent text-black">
+                    <div className="md:text-sm text-[10px]">
+                      <button className="button bg-transparent text-black ">
                         RS {product.price * product.qty}
                       </button>
                     </div>

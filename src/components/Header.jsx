@@ -10,6 +10,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import useOnScroll from '../hooks/useonScroll';
 import toast, { Toaster } from 'react-hot-toast';
+import Search from './Search';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ const Header = () => {
       >
         Eco😉
       </h1>
+      <Search />
       <div className="flex items-center gap-2 ">
         {token ? (
           <select

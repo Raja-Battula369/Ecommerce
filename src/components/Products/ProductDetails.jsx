@@ -68,7 +68,7 @@ const ProductDetails = () => {
       </h2>
 
       <div className=" flex flex-col  md:flex-row justify-center items-center w-full gap-3">
-        <div className="flex-1 md:w-[60%] h-[500px] border-[4px] border-violet-600 rounded-md ml-1">
+        <div className="flex-1 w-[90%] md:w-[60%] h-[500px] border-[4px] border-violet-600 rounded-md ml-1">
           {image ? (
             <img
               className="w-full h-[70%] object-fill"
@@ -95,7 +95,7 @@ const ProductDetails = () => {
             ))}
           </div>
         </div>
-        <div className=" flex-1 md:w-[35%] text-violet-600 md:self-start text-xl font-bold">
+        <div className=" flex-1 w-[90%] md:w-[35%] text-violet-600 md:self-start text-xl font-bold">
           <h3>
             Title:{' '}
             <span className="dark:text-white text-black">
