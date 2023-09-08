@@ -32,7 +32,7 @@ const Signup = () => {
     }
   };
   return (
-    <div className="w-full font-semibold text-black min-h-screen max-h-full flex flex-col justify-center items-center">
+    <div className="dark:bg-black dark:text-white w-full font-semibold text-black min-h-screen max-h-full flex flex-col justify-center items-center">
       <form
         onSubmit={handleSubmit(handleregister)}
         className="w-[90%] md:w-[500px] h-fit  border-[3px] border-violet-600 shadow-sm hover:shadow-md transition bg-slate-600 rounded-md "
@@ -157,7 +157,7 @@ const Signup = () => {
             already you have a account?{' '}
             <span
               onClick={() => navigate('/signin')}
-              className="underline  text-white hover:text-violet-400"
+              className="underline  text-white hover:text-violet-400 cursor-pointer"
             >
               Signin here
             </span>

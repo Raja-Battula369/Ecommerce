@@ -25,7 +25,39 @@ const Signin = () => {
 
       const res = await login('/auth/login', Formvalues);
 
-      res ? toast.success('success') : toast.error('error');
+      res
+        ? toast.success('success')
+        : toast.error('email or password not valid');
+
+      dispatch(
+        loginStore({
+          token: res.token,
+
+          email: res.data.email,
+          name: res.data.name,
+        })
+      );
+      navigate('/');
+    } catch (error) {
+      SetLoading(false);
+
+      console.log(error);
+    }
+  };
+  const handleGuest = async () => {
+    SetLoading(true);
+
+    try {
+      SetLoading(false);
+
+      const res = await login('/auth/login', {
+        email: 'oddeyking@gmail.com',
+        password: 'qw12qw!',
+      });
+
+      res
+        ? toast.success('success')
+        : toast.error('email or password not valid');
 
       dispatch(
         loginStore({
@@ -43,7 +75,7 @@ const Signin = () => {
     }
   };
   return (
-    <div className="w-full font-semibold  text-black min-h-screen max-h-full flex flex-col justify-center items-center">
+    <div className="dark:bg-black dark:text-white w-full font-semibold  text-black min-h-screen max-h-full flex flex-col justify-center items-center">
       <form
         onSubmit={handleSubmit(handleLogin)}
         className="w-[90%] md:w-[500px] h-fit  border-[3px] border-violet-600 shadow-sm hover:shadow-md transition bg-slate-600 rounded-md "
@@ -112,14 +144,22 @@ const Signin = () => {
           </p>
         </div>
         <div className="flex flex-col justify-center items-center gap-2">
-          <button className="button flex-1 px-8">
-            {loading ? 'loading' : 'Login'}
-          </button>
+          <div className="flex justify-center items-center gap-2">
+            <button type="submit" className="button flex-1 px-8">
+              {loading ? 'loading' : 'Login'}
+            </button>
+            <button
+              onClick={handleGuest}
+              className="button flex-1 px-8 bg-slate-600"
+            >
+              {loading ? 'loading' : 'Guest'}
+            </button>
+          </div>
           <span className="font-semibold ">
             Create new account{' '}
             <span
               onClick={() => navigate('/signup')}
-              className="underline  text-white hover:text-violet-400"
+              className="underline  text-white hover:text-violet-400 cursor-pointer"
             >
               Signup here
             </span>
