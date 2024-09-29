@@ -25,9 +25,7 @@ const Signin = () => {
 
       const res = await login('/auth/login', Formvalues);
 
-      res
-        ? toast.success('success')
-        : toast.error('email or password not valid');
+      toast.success('success');
 
       dispatch(
         loginStore({
@@ -39,6 +37,8 @@ const Signin = () => {
       );
       navigate('/');
     } catch (error) {
+      toast.error('email or password not valid');
+
       SetLoading(false);
 
       console.log(error);
@@ -46,10 +46,8 @@ const Signin = () => {
   };
   const handleGuest = async () => {
     SetLoading(true);
-
+    toast.success('please wait for 30 secs, backend server to load');
     try {
-      SetLoading(false);
-
       const res = await login('/auth/login', {
         email: 'oddeyking@gmail.com',
         password: 'qw12qw!',
