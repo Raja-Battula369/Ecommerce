@@ -4,7 +4,7 @@ const ProductsHook = () => {
   const [products, setProducts] = useState([]);
 
   const fetchProductsData = async () => {
-    const data = await fetch('https://dummyjson.com/products', {
+    const data = await fetch('https://dummyjson.com/products?limit=150', {
       cache: 'force-cache',
     });
     const respone = await data.json();
